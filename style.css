@@ -1,0 +1,133 @@
+body {
+    height: 200vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    /*overflow:  hidden;*/
+}
+
+.dance-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    background: #141416;
+}
+
+.right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+    z-index: 999;
+    color: #fff;
+    padding-bottom: 20px;
+}
+.right > span {
+    font-size: 20px;
+    font-weight: 100;
+}
+.right > span:first-child {
+    font-size: 50px;
+    font-weight: 400;
+}
+
+
+
+
+.mouse {
+    bottom: 40px;
+    position: absolute;
+    left: 50%;
+}
+.mouse > span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid transparent;
+    animation: scroll 1s infinite both;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+}
+
+
+
+
+
+.dance {
+    position: fixed;
+    display: block;
+    width: 400px;
+    height: 115%;
+    margin:0 auto;
+    background: url(dance_dark.jpg) 0 0 no-repeat;
+    animation: dance-gif steps(36) 2.5s infinite both;
+}
+.pause {
+    animation-play-state: paused;
+}
+
+.reverse {
+    animation-direction: alternate-reverse;
+}
+
+@keyframes dance-gif {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+
+/*mobile*/
+@media screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    .content {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        height: 100%;
+    }
+}
+
+/*ipad and desktop*/
+@media screen and (min-device-width : 768px) and (max-device-width : 1824px) {
+    .content {
+        display: flex;
+        justify-content: center;
+        /*background: #eaeaea;*/
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(234,234,234,1) 60%);
+        width: 70%;
+        height: 85vh;
+    }
+}
+
+/*big desktop*/
+@media screen and (min-width : 1824px) {
+    .content {
+        display: flex;
+        justify-content: center;
+        /*background: #eaeaea;*/
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(234,234,234,1) 60%);
+        width: 50%;
+        height: 85vh;
+    }
+}

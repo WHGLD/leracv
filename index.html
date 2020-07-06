@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Valeria Tropina</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="dance-container">
+
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="content" style="display: none;">
+            <div class="left">
+                <div id="dance" class="dance" data-info="pause"></div>
+            </div>
+            <div class="right">
+                <span>VALERIA TROPINA</span>
+                <span>#pole dance</span>
+                <span>#exotic</span>
+                <span>#stretching</span>
+                <div class="mouse">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        window.onload = function () {
+            window.setTimeout(function () {
+                $('.preloader-wrapper').fadeOut(400);
+                window.setTimeout(function () {
+                    document.querySelector('.content').style.display='flex';
+                }, 300);
+            }, 1500);
+        }
+
+
+        $('#dance').addClass('pause');
+        window.scrollPos = 0;
+        $(window).on('scroll', function () {
+            $('#dance').removeClass('pause');
+
+            $('.right').css('color', '#272727');
+
+            // if (!isScrollingDown()){
+            //     $('#dance').addClass('reverse');
+            // } else {
+            //     $('#dance').removeClass('reverse');
+            // }
+
+            clearTimeout($.data(this, 'scrollTimer'));
+            $.data(this, 'scrollTimer', setTimeout(function() {
+                $('#dance').addClass('pause');
+                $('.right').css('color', '#fff');
+            }, 250));
+        });
+
+        function isScrollingDown() {
+            let result = true;
+
+            console.log((document.body.getBoundingClientRect()).top, window.scrollPos);
+
+            if ((document.body.getBoundingClientRect()).top > window.scrollPos){
+                result = false;
+                console.log('скроллим вверх');
+            } else {
+                result = true;
+                console.log('скроллим вниз');
+            }
+            window.scrollPos = (document.body.getBoundingClientRect()).top;
+            return result;
+        }
+    </script>
+</body>
+</html>
+
+<!--music-->
+<!--Lonely World-->
+<!--Brennan Savage-->
